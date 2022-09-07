@@ -1,2 +1,2 @@
 sqlfluff
-dbt-postgres
+dbt-bigquery
