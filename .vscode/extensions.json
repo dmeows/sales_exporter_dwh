@@ -1,5 +1,6 @@
 {
     "recommendations": [
+        "bastienboutonnet.vscode-dbt",
         "innoverio.vscode-dbt-power-user",
         "amodio.find-related",
         "mechatroner.rainbow-csv"

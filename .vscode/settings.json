@@ -1,6 +1,6 @@
 {
     // change this to your desired path!
-    "python.defaultInterpreterPath": "./.dbtenv/Scripts/python",
+    "python.defaultInterpreterPath": "./.dbtenv/Scripts/python.exe",
 
     // SOURCE: https://dbt-msft.github.io/dbt-msft-docs/docs/guides/vscode_setup/#vscode-dbt
     "files.associations": {
