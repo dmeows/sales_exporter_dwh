@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "bastienboutonnet.vscode-dbt",
+        "amodio.find-related",
+        "mechatroner.rainbow-csv"
+    ]
+}
