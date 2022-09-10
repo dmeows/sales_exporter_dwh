@@ -1,8 +1,15 @@
 {#
 Bạn hãy làm theo yêu cầu bên dưới nha 😁
 Yêu cầu:
-- Xem bảng sales__order_lines
-- Viết câu query bằng SQL để xử lý 3 cột: order_line_id, quantity, unit_price 
+- Xem thông tin và dữ liệu của bảng "sales__order_lines"
+- Từ bảng "sales__order_lines", viết câu query bằng SQL để lấy 3 cột và đặt lại tên:
+
+| Tên gốc       | Tên mới             |
+|---------------|---------------------|
+| order_line_id | sales_order_line_id |
+| quantity      | quantity            |
+| unit_price    | unit_price          |
+
 #}
 
 
