@@ -15,5 +15,10 @@ pip install sqlfluff
 pip freeze > requirements.txt
 
 
+
+dbt init
+dbt deps
+
+
 :: todo
 :: sqlfluff
