@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: fact_sales_order_line
+    columns:
+      - name: sales_order_line_id
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: quantity
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+      - name: unit_price
+        tests:
+          - dbt_expectations.expect_column_to_exist
