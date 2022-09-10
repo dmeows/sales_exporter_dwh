@@ -1,15 +1,12 @@
 {#
-Bạn hãy làm theo yêu cầu bên dưới nha 😁
+Ở bài trước, mình đã viết query để lấy 3 cột và đặt lại tên. Trong bài này, mình cần phải thêm "derived facts" (số liệu được tính toán).
 Yêu cầu:
-- Xem thông tin và dữ liệu của bảng "sales__order_lines"
-- Từ bảng "sales__order_lines", viết câu query bằng SQL để lấy 3 cột và đặt lại tên:
-
-| Tên gốc       | Tên mới             |
-|---------------|---------------------|
-| order_line_id | sales_order_line_id |
-| quantity      | quantity            |
-| unit_price    | unit_price          |
-
+- Viết query để có thể tính gross_amount (doanh thu) trên model
 #}
 
 
+SELECT 
+  order_line_id AS sales_order_line_id
+  , quantity
+  , unit_price
+FROM `duckdata-320210.wide_world_importers.sales__order_lines`

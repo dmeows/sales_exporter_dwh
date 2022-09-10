@@ -14,3 +14,7 @@ models:
       - name: unit_price
         tests:
           - dbt_expectations.expect_column_to_exist
+
+      - name: gross_amount
+        tests:
+          - dbt_expectations.expect_column_to_exist
