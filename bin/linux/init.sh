@@ -11,7 +11,7 @@ source .dbtenv/bin/activate
 
 
 # Cài đặt thư viện Python (bao gồm DBT)
-pip install -r requirements.txt
+pip install -r bin/requirements.txt
 
 
 # Cài đặt thư viện DBT
