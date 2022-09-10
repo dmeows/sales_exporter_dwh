@@ -1,5 +1,7 @@
 # Config files
-conf/
+conf/*
+!conf/.gitkeep
+
 
 # Python venv
 .dbtenv/
