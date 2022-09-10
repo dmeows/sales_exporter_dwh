@@ -1,1 +1,0 @@
-# data_warehouse_course
