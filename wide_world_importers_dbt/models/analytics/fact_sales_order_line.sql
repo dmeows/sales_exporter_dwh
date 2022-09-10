@@ -1,3 +1,14 @@
+{#
+Yêu cầu:
+- Lấy thêm thông tin cho bảng này
+
+| Tên gốc         | Tên mới      |
+|-----------------|--------------|
+| stock_item_id   | product_id   |
+
+#}
+
+
 SELECT 
   order_line_id AS sales_order_line_id
   , quantity
