@@ -1,0 +1,36 @@
+version: 2
+
+sources:
+  - name: wide_world_importers
+    schema: wide_world_importers
+    database: duckdata-320210
+    tables: 
+      - name: application__cities
+      - name: application__countries
+      - name: application__delivery_methods
+      - name: application__payment_methods
+      - name: application__people
+      - name: application__state_provinces
+      - name: application__system_parameters
+      - name: application__transaction_types
+      - name: purchasing__purchase_order_lines
+      - name: purchasing__purchase_orders
+      - name: purchasing__supplier_categories
+      - name: purchasing__supplier_transactions
+      - name: purchasing__suppliers
+      - name: sales__buying_groups
+      - name: sales__customer_categories
+      - name: sales__customer_transactions
+      - name: sales__customers
+      - name: sales__invoice_lines
+      - name: sales__invoices
+      - name: sales__order_lines
+      - name: sales__orders
+      - name: sales__special_deals
+      - name: warehouse__colors
+      - name: warehouse__package_types
+      - name: warehouse__stock_groups
+      - name: warehouse__stock_item_holdings
+      - name: warehouse__stock_item_stock_groups
+      - name: warehouse__stock_item_transactions
+      - name: warehouse__stock_items
