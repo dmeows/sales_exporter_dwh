@@ -1,16 +1,11 @@
 {#
-Yêu cầu:
-- Lấy thêm thông tin cho bảng này
-
-| Tên gốc         | Tên mới      |
-|-----------------|--------------|
-| stock_item_id   | product_id   |
 
 #}
 
 
 SELECT 
   order_line_id AS sales_order_line_id
+  , stock_item_id AS product_id
   , quantity
   , unit_price
   , quantity * unit_price AS gross_amount
