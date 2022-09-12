@@ -3,12 +3,13 @@ Trong thực tế, data source khi được đưa về data lake có thể khôn
 
 Yêu cầu #0104a:
 - Tìm syntax chuyển đổi data type
+- Tìm đọc các loại data type của BigQuery
 - Chuyển đổi data type của bảng này
 #}
 
 
 SELECT 
-    stock_item_id AS product_id
+    CAST(stock_item_id AS INT) AS product_id
     , stock_item_name AS product_name
     , brand AS brand_name
 FROM `duckdata-320210.wide_world_importers.warehouse__stock_items`
