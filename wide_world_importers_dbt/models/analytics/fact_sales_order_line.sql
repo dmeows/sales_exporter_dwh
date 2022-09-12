@@ -1,4 +1,6 @@
 {#
+Yêu cầu #0104b:
+- Chuyển đổi data type của bảng này
 
 #}
 
