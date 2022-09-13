@@ -1,4 +1,5 @@
 {#
+Yêu cầu #0108a: Thêm dữ liệu "is_chiller_stock"
 
 #}
 
