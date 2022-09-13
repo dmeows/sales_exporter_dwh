@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: dim_supplier
+    columns:
+      - name: supplier_id
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+
+      - name: supplier_name
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: STRING
