@@ -1,4 +1,12 @@
 {#
+Yêu cầu #0107b:
+- Flatten các dữ liệu sau cho bảng "dim_customer":
+  - customer_category_id
+  - customer_category_name
+  - buying_group_id
+  - buying_group_name
+  - delivery_method_id
+  - delivery_method_name
 
 #}
 
