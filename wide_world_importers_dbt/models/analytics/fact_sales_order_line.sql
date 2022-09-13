@@ -50,10 +50,13 @@ WITH fact_sales_order_line__source AS (
 )
 
 SELECT 
-  sales_order_line_id
-  , sales_order_id
-  , product_id
-  , quantity 
-  , unit_price
-  , gross_amount
-FROM fact_sales_order_line__calculate_fact
+  fact_line.sales_order_line_id
+  , fact_line.sales_order_id
+  , COALESCE(fact_header.customer_id, 0) AS customer_id
+  , fact_line.product_id
+  , fact_line.quantity 
+  , fact_line.unit_price
+  , fact_line.gross_amount
+FROM fact_sales_order_line__calculate_fact AS fact_line
+LEFT JOIN {{ ref('stg_fact_sales_order') }} AS fact_header
+  ON fact_line.sales_order_id = fact_header.sales_order_id
