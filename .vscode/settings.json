@@ -88,4 +88,12 @@
     // (easier to count out indentation and spot trailing whitesapce)
     "editor.renderWhitespace": "all",
     "editor.wordWrap": "on",
+
+
+    // SOURCE: https://stackoverflow.com/questions/45806965/auto-indent-rules-for-file-extension-in-visual-studio-code-vscode
+    "[jinja-sql]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    }
 }
