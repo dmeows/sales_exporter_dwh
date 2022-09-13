@@ -20,6 +20,9 @@ WITH dim_customer__source AS (
   SELECT 
     CAST(customer_id AS INTEGER) AS customer_id
     , CAST(customer_name AS STRING) AS customer_name
+    , CAST(customer_category_id AS INTEGER) AS customer_category_id
+    , CAST(buying_group_id AS INTEGER) AS buying_group_id
+    , CAST(delivery_method_id AS INTEGER) AS delivery_method_id
   FROM dim_customer__source
 )
 
@@ -27,4 +30,7 @@ WITH dim_customer__source AS (
 SELECT 
   customer_id
   , customer_name 
+  , customer_category_id
+  , buying_group_id
+  , delivery_method_id
 FROM dim_customer__cast_type
