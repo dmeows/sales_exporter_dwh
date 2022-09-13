@@ -30,6 +30,17 @@ WITH dim_customer__source AS (
   FROM dim_customer__rename_column
 )
 
+, dim_customer__handle_null AS (
+  SELECT 
+    customer_id
+    , customer_name
+    , is_on_credit_hold_boolean
+    , customer_category_id
+    , COALESCE(buying_group_id, 0) AS buying_group_id
+    , delivery_method_id
+  FROM dim_customer__cast_type
+)
+
 , dim_customer__convert_boolean AS (
   SELECT
     *
@@ -38,7 +49,7 @@ WITH dim_customer__source AS (
       WHEN is_on_credit_hold_boolean IS FALSE THEN 'Not On Credit Hold'
       ELSE 'Undefined' END 
       AS is_on_credit_hold
-  FROM dim_customer__cast_type
+  FROM dim_customer__handle_null
 )
 
 
