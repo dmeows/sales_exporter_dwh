@@ -1,4 +1,10 @@
 {#
+Bây giờ bạn thử làm biểu đồ doanh thu theo brand (nhãn hàng) bằng Google Data Studio nha.
+
+Sau khi bạn đã làm biểu đồ doanh thu theo brand, bạn sẽ thấy có brand bị null. Khi đưa lên biểu đồ hoặc lên filter, những giá trị bị null sẽ gây nhầm lẫn và bất tiện. Do đó mình cần phải xử lý null.
+Nếu bạn chưa biết null là gì thì coi video này nha 👉https://youtu.be/LllrDN7p1bU
+
+Yêu cầu #0109: Xử lý ở tất cả các bảng dimension đang có.
 
 #}
 
