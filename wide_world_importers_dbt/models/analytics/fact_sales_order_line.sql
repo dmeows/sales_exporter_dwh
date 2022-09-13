@@ -8,7 +8,7 @@ Chúng ta cũng sẽ cần lấy data của bảng Header và đem nó vào "fac
 
 Yêu cầu #0106a:
 - Xem thông tin và dữ liệu của bảng "sales__orders"
-- Lấy thêm thông tin cho bảng này: 
+- Lấy thêm dữ liệu cho bảng này: 
 
 | Tên gốc                   | Tên mới     |
 |---------------------------|-------------|
