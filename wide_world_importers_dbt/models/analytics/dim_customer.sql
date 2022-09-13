@@ -28,9 +28,18 @@ WITH dim_customer__source AS (
 
 
 SELECT 
-  customer_id
-  , customer_name 
-  , customer_category_id
-  , buying_group_id
-  , delivery_method_id
-FROM dim_customer__cast_type
+  dim_customer.customer_id
+  , dim_customer.customer_name 
+  , dim_customer.customer_category_id
+  , dim_customer_category.customer_category_name
+  , dim_customer.buying_group_id
+  , dim_buying_group.buying_group_name
+  , dim_customer.delivery_method_id
+  , dim_delivery_method.delivery_method_name
+FROM dim_customer__cast_type AS dim_customer
+LEFT JOIN {{ ref('stg_dim_customer_category') }} AS dim_customer_category
+  ON dim_customer.customer_category_id = dim_customer_category.customer_category_id
+LEFT JOIN {{ ref('stg_dim_buying_group') }} AS dim_buying_group
+  ON dim_customer.buying_group_id = dim_buying_group.buying_group_id
+LEFT JOIN {{ ref('stg_dim_delivery_method') }} AS dim_delivery_method
+  ON dim_customer.delivery_method_id = dim_delivery_method.delivery_method_id
