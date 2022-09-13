@@ -1,8 +1,4 @@
 {#
-Khi mình nhìn vào model hiện tại, mọi người sẽ thấy nó rối hơn. Các hàm lồng vào nhau giống như trên Excel (ví dụ UPPER(TRIM(CAST(brand AS STRING)))). Một số cột được dùng ở nhiều nơi, khi sửa phải cẩn thận để không bị mất đồng bộ (ví dụ CAST(quantity AS NUMERIC) được dùng ở 2 nơi là quantity và gross_amount, khi sửa phải sửa 2 nơi).
-
-Yêu cầu #0105a:
-- Tìm cách để quản lý tốt hơn, giảm sự rối rắm cho model này
 
 #}
 
