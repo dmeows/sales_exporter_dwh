@@ -1,4 +1,6 @@
 {#
+Yêu cầu #0105b:
+- Giảm sự rối rắm cho model này
 
 #}
 
