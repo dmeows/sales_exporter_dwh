@@ -20,8 +20,16 @@ WITH dim_product__source AS (
   FROM dim_product__source
 )
 
+, dim_product__cast_type AS (
+  SELECT 
+    CAST(product_id AS INTEGER) AS product_id
+    , CAST(product_name AS STRING) AS product_name
+    , CAST(brand_name AS STRING) AS brand_name
+  FROM dim_product__rename_column
+)
+
 SELECT 
-  CAST(product_id AS INTEGER) AS product_id
-  , CAST(product_name AS STRING) AS product_name
-  , CAST(brand_name AS STRING) AS brand_name
-FROM dim_product__rename_column
+  product_id
+  , product_name
+  , brand_name
+FROM dim_product__cast_type
