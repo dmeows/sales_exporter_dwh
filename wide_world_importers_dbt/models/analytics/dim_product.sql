@@ -1,4 +1,21 @@
 {#
+Giả sử bây giờ sếp cần xem doanh thu theo supplier (nhà cung cấp). Bạn hãy thử dùng dữ liệu thô để làm báo cáo này trên Google Data Studio nha.
+
+Nếu mình dùng dữ liệu thô theo Snowflake Schema, mình sẽ cần phải import và tạo quan hệ cho các bảng "sales__order_lines" --> "warehouse__stock_items" --> "purchasing__suppliers".
+
+Nếu mình làm data model, mình chỉ cần đem dữ liệu supplier vào bảng "dim_product", sau đó chỉ cần dùng hai bảng "fact_sales_order_line" và "dim_product" là đủ.
+Từ khóa tiếng anh là "flatten many-to-one dimension".
+
+Yêu cầu #0107a:
+- Xem thông tin và dữ liệu của bảng "purchasing__suppliers".
+- Lấy dữ liệu cho bảng "dim_supplier". Tương tự như "stg_fact_sales_order", mình cũng cần xử lý trước khi JOIN vào "dim_product". Tuy nhiên, bảng "dim_supplier" có khả năng sẽ được sử dụng nên mình sẽ để ở "analytics".
+
+| Tên gốc       | Tên mới       |
+|---------------|---------------|
+| supplier_id   | supplier_id   |
+| supplier_name | supplier_name |
+
+- Flatten dữ liệu "dim_supplier" vào "dim_product".
 
 #}
 
