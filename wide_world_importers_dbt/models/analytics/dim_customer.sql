@@ -1,5 +1,4 @@
 {#
-Yêu cầu #0108b: Thêm dữ liệu "is_on_credit_hold"
 
 #}
 
