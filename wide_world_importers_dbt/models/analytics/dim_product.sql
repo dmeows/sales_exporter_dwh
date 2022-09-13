@@ -34,6 +34,16 @@ WITH dim_product__source AS (
   FROM dim_product__rename_column
 )
 
+, dim_product__handle_null AS (
+  SELECT 
+    product_id
+    , product_name
+    , COALESCE(brand_name, 'Undefined') AS brand_name
+    , is_chiller_stock_boolean
+    , supplier_id
+  FROM dim_product__cast_type
+)
+
 , dim_product__convert_boolean AS (
   SELECT 
     *
@@ -42,7 +52,7 @@ WITH dim_product__source AS (
       WHEN is_chiller_stock_boolean IS FALSE THEN 'Not Chiller Stock'
       ELSE 'Undefined' END
       AS is_chiller_stock
-  FROM dim_product__cast_type
+  FROM dim_product__handle_null
 )
 
 SELECT 
