@@ -47,11 +47,11 @@ SELECT
   , dim_customer.customer_name 
   , dim_customer.is_on_credit_hold
   , dim_customer.customer_category_id
-  , dim_customer_category.customer_category_name
+  , COALESCE(dim_customer_category.customer_category_name, 'Undefined') AS customer_category_name
   , dim_customer.buying_group_id
-  , dim_buying_group.buying_group_name
+  , COALESCE(dim_buying_group.buying_group_name, 'Undefined') AS buying_group_name
   , dim_customer.delivery_method_id
-  , dim_delivery_method.delivery_method_name
+  , COALESCE(dim_delivery_method.delivery_method_name, 'Undefined') AS delivery_method_name
 FROM dim_customer__convert_boolean AS dim_customer
 LEFT JOIN {{ ref('stg_dim_customer_category') }} AS dim_customer_category
   ON dim_customer.customer_category_id = dim_customer_category.customer_category_id
