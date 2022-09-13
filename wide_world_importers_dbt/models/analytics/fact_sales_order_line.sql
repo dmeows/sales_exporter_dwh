@@ -1,6 +1,6 @@
 {#
 Yêu cầu:
-- Lấy thêm thông tin cho bảng này
+- Lấy thêm dữ liệu cho bảng này
 
 | Tên gốc         | Tên mới      |
 |-----------------|--------------|
