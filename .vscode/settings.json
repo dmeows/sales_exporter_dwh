@@ -95,5 +95,11 @@
         "editor.detectIndentation": false,
         "editor.tabSize": 2,
         "editor.insertSpaces": true
-    }
+    },
+
+
+    // SOURCE: https://stackoverflow.com/a/63541437
+    "workbench.editorAssociations": {   
+        "*.md": "vscode.markdown.preview.editor",
+    },
 }
