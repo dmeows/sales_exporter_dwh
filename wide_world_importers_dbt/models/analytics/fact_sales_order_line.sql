@@ -1,4 +1,10 @@
 {#
+Yêu cầu #0110a: 
+- Lấy thêm dữ liệu cho bảng này: 
+
+| Tên gốc                           | Tên mới             |
+|-----------------------------------|---------------------|
+| sales__orders.picked_by_person_id | picked_by_person_id |
 
 #}
 
