@@ -1,4 +1,7 @@
 {#
+Tương tự như bài trước, dữ liệu trong bảng fact vẫn có thể bị null và có thể gây nhầm lẫn trên báo cáo và bất tiện khi lọc dữ liệu.
+
+Yêu cầu #0110b: Xử lý null sao cho trên báo cáo và filter không hiện null của "person".
 
 #}
 
