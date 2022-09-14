@@ -1,4 +1,9 @@
 {#
+Yêu cầu #0111b: Lấy thêm dữ liệu cho bảng này:
+
+| Tên gốc                  | Tên mới    |
+|--------------------------|------------|
+| sales__orders.order_date | order_date |
 
 #}
 
