@@ -15,8 +15,20 @@ WITH dim_supplier__source AS (
   FROM dim_supplier__source
 )
 
+, dim_supplier__add_undefined_record AS (
+  SELECT  
+    supplier_id
+    , supplier_name
+  FROM dim_supplier__cast_type
+
+  UNION ALL 
+  SELECT 
+    0 AS supplier_id
+    , 'Undefined' AS supplier_name
+)
+
 
 SELECT 
   supplier_id
   , supplier_name 
-FROM dim_supplier__cast_type
+FROM dim_supplier__add_undefined_record

@@ -52,6 +52,26 @@ WITH dim_customer__source AS (
   FROM dim_customer__handle_null
 )
 
+, dim_customer__add_undefined_record AS (
+  SELECT 
+    customer_id
+    , customer_name
+    , is_on_credit_hold
+    , customer_category_id
+    , buying_group_id
+    , delivery_method_id
+  FROM dim_customer__convert_boolean
+
+  UNION ALL
+  SELECT 
+    0 AS customer_id
+    , 'Undefined' AS customer_name
+    , 'Undefined' AS is_on_credit_hold
+    , 0 AS customer_category_id
+    , 0 AS buying_group_id
+    , 0 AS delivery_method_id
+)
+
 
 SELECT 
   dim_customer.customer_id
@@ -63,7 +83,7 @@ SELECT
   , COALESCE(dim_buying_group.buying_group_name, 'Undefined') AS buying_group_name
   , dim_customer.delivery_method_id
   , COALESCE(dim_delivery_method.delivery_method_name, 'Undefined') AS delivery_method_name
-FROM dim_customer__convert_boolean AS dim_customer
+FROM dim_customer__add_undefined_record AS dim_customer
 LEFT JOIN {{ ref('stg_dim_customer_category') }} AS dim_customer_category
   ON dim_customer.customer_category_id = dim_customer_category.customer_category_id
 LEFT JOIN {{ ref('stg_dim_buying_group') }} AS dim_buying_group
