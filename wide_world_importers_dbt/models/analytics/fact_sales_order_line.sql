@@ -6,6 +6,8 @@ Yêu cầu #0110a:
 |-----------------------------------|---------------------|
 | sales__orders.picked_by_person_id | picked_by_person_id |
 
+- Làm biểu đồ doanh thu theo nhân viên đóng gói ("picked_by_person_id")
+
 #}
 
 
