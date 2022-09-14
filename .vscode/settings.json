@@ -78,7 +78,7 @@
     // SOURCE: https://dbt-msft.github.io/dbt-msft-docs/docs/guides/vscode_setup/#extra-settings
     // easier to see if there are unsaved changed
     "workbench.editor.highlightModifiedTabs": true,
-    "workbench.editor.labelFormat": "medium",
+    // "workbench.editor.labelFormat": "medium",
     // make Command Prompt the default shell for Windows instead of Powershell
     "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
     
