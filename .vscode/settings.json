@@ -80,7 +80,7 @@
     "workbench.editor.highlightModifiedTabs": true,
     // "workbench.editor.labelFormat": "medium",
     // make Command Prompt the default shell for Windows instead of Powershell
-    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    // "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
     
     // make a vertical line so I don't make lines too long
     // "editor.rulers": [80],
@@ -102,4 +102,24 @@
     "workbench.editorAssociations": {   
         "*.md": "vscode.markdown.preview.editor",
     },
+
+
+    // SOURCE: https://stackoverflow.com/questions/45635168/vscode-how-to-run-a-command-after-each-terminal-open
+    // "terminal.integrated.shellArgs.osx": ,
+    // "terminal.integrated.shellArgs.linux": ["your_init_script.sh"],
+    "terminal.integrated.profiles.windows": {
+        "Custom Cmd": {
+            "path": "C:\\WINDOWS\\System32\\cmd.exe",
+            "args": ["/k", "bin\\windows\\terminal_startup.bat"]
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "Custom Cmd",
+
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "bash",
+            "args": ["--init-file", "bin/linux/terminal_startup.sh"]
+        },
+    },
+    "terminal.integrated.defaultProfile.linux": "bash",
 }
