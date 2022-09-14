@@ -5,15 +5,14 @@
     // SOURCE: https://dbt-msft.github.io/dbt-msft-docs/docs/guides/vscode_setup/#vscode-dbt
     "files.associations": {
         // the pattern on the left side can be whatever you want: e.g.
-        "**/jaffle_shop/**/*.sql": "jinja-sql", // just the .sqlfiles inside of jaffle_shop, or
-        "*.sql": "jinja-sql", // all .sql files
+        "**/wide_world_importers_dbt/**/*.sql": "jinja-sql", 
     
         // optional: don't format models in `target/` dir
         "**/target/**": "",
         // I don't personally use these, but you can also have jinja work for `yaml` and `md` files
-        "**/<dbt-project-dir>/**/*.yaml": "jinja-yaml",
-         "**/<dbt-project-dir>/**/*.yml": "jinja-yaml",
-        "**/<dbt-project-dir>/**/docs/**/*.md": "jinja-md",
+        "**/wide_world_importers_dbt/**/*.yaml": "jinja-yaml",
+         "**/wide_world_importers_dbt/**/*.yml": "jinja-yaml",
+        "**/wide_world_importers_dbt/**/docs/**/*.md": "jinja-md",
     
         // the vscode-dbt docs say you may need this
         "editor.quickSuggestions": "strings"
@@ -79,9 +78,9 @@
     // SOURCE: https://dbt-msft.github.io/dbt-msft-docs/docs/guides/vscode_setup/#extra-settings
     // easier to see if there are unsaved changed
     "workbench.editor.highlightModifiedTabs": true,
-    "workbench.editor.labelFormat": "medium",
+    // "workbench.editor.labelFormat": "medium",
     // make Command Prompt the default shell for Windows instead of Powershell
-    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    // "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
     
     // make a vertical line so I don't make lines too long
     // "editor.rulers": [80],
@@ -89,4 +88,38 @@
     // (easier to count out indentation and spot trailing whitesapce)
     "editor.renderWhitespace": "all",
     "editor.wordWrap": "on",
+
+
+    // SOURCE: https://stackoverflow.com/questions/45806965/auto-indent-rules-for-file-extension-in-visual-studio-code-vscode
+    "[jinja-sql]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
+
+
+    // SOURCE: https://stackoverflow.com/a/63541437
+    "workbench.editorAssociations": {   
+        "*.md": "vscode.markdown.preview.editor",
+    },
+
+
+    // SOURCE: https://stackoverflow.com/questions/45635168/vscode-how-to-run-a-command-after-each-terminal-open
+    // "terminal.integrated.shellArgs.osx": ,
+    // "terminal.integrated.shellArgs.linux": ["your_init_script.sh"],
+    "terminal.integrated.profiles.windows": {
+        "Custom Cmd": {
+            "path": "C:\\WINDOWS\\System32\\cmd.exe",
+            "args": ["/k", "bin\\windows\\terminal_startup.bat"]
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "Custom Cmd",
+
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "bash",
+            "args": ["--init-file", "bin/linux/terminal_startup.sh"]
+        },
+    },
+    "terminal.integrated.defaultProfile.linux": "bash",
 }
