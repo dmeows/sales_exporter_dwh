@@ -2,6 +2,7 @@
 wide_world_importers_dbt/target/
 wide_world_importers_dbt/dbt_packages/
 wide_world_importers_dbt/logs/
+wide_world_importers_dbt/.user.yml
 
 
 # Config files
