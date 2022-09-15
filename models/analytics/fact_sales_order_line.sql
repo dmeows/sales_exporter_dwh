@@ -1,6 +1,6 @@
 {#
 Bạn hãy làm theo yêu cầu bên dưới nha 😁
-Yêu cầu:
+Yêu cầu #0101:
 - Xem thông tin và dữ liệu của bảng "sales__order_lines"
 - Sửa câu query SQL bên dưới để lấy 3 cột và đặt lại tên:
 
