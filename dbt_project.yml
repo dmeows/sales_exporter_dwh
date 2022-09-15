@@ -12,15 +12,15 @@ profile: 'wide_world_importers_dbt'
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
-model-paths: ["wide_world_importers_dbt/models"]
-test-paths: ["wide_world_importers_dbt/tests"]
+model-paths: ["models"]
+test-paths: ["tests"]
 
-target-path: "wide_world_importers_dbt/target"  # directory which will store compiled SQL files
-log-path: "wide_world_importers_dbt/logs"
-packages-install-path: "wide_world_importers_dbt/dbt_packages"
+target-path: "target"  # directory which will store compiled SQL files
+log-path: "logs"
+packages-install-path: "dbt_packages"
 clean-targets:         # directories to be removed by `dbt clean`
-  - "wide_world_importers_dbt/target"
-  - "wide_world_importers_dbt/dbt_packages"
+  - "target"
+  - "dbt_packages"
 
 
 # Configuring models
