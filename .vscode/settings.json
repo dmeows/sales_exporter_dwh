@@ -115,11 +115,11 @@
     },
     "terminal.integrated.defaultProfile.windows": "Custom Cmd",
 
-    "terminal.integrated.profiles.linux": {
-        "bash": {
-            "path": "bash",
-            "args": ["--init-file", "bin/linux/terminal_startup.sh"]
+    "terminal.integrated.profiles.osx": {
+        "Custom MacOS": {
+            "path": "/bin/sh",
+            "args": ["--init-file", "bin/macos/terminal_startup.sh"]
         },
     },
-    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.defaultProfile.osx": "Custom MacOS",
 }
