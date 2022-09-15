@@ -1,8 +1,8 @@
 wide_world_importers_dbt:
   outputs:
     dev:
-      project: duckdata-example # copy ID của Google Cloud project và điền vào đây
-      keyfile: C:\Users\Admin\Projects\data_warehouse_course\conf\dbt-bigquery-service-account.json # copy đường dẫn tới file Service Account đã tải về và điền vào đây
+      project: duckdata-example
+      keyfile: C:\Users\Admin\Projects\data_warehouse_course\conf\dbt-bigquery-service-account.json
       location: asia-southeast1
       dataset: wide_world_importers_dwh
       type: bigquery
