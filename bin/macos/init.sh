@@ -4,8 +4,8 @@
 
 # Tạo môi trường ảo cho Python
 # Vì DBT được viết bằng Python, nên mình sẽ cần phải cài Python trước.
-# Bạn cần có Python phiên bản từ 3.6 đến 3.10.
-# Nếu bạn chưa có Python, vào trang chủ Python, tải về và cài đặt nha: https://www.python.org/downloads/
+# Bạn cần có Python phiên bản 3.8.10 (các phiên bản khác chưa được test).
+# Nếu bạn chưa có Python, vào trang chủ Python, tải về và cài đặt nha: https://www.python.org/downloads/release/python-3810/
 python -m venv .dbtenv
 source .dbtenv/bin/activate
 
