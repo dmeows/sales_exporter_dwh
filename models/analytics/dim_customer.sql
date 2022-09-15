@@ -90,3 +90,4 @@ LEFT JOIN {{ ref('stg_dim_buying_group') }} AS dim_buying_group
   ON dim_customer.buying_group_id = dim_buying_group.buying_group_id
 LEFT JOIN {{ ref('stg_dim_delivery_method') }} AS dim_delivery_method
   ON dim_customer.delivery_method_id = dim_delivery_method.delivery_method_id
+
