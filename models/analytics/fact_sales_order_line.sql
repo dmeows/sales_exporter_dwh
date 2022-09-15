@@ -5,6 +5,7 @@ Yêu cầu #0104b:
 #}
 
 
+
 SELECT 
   order_line_id AS sales_order_line_id
   , stock_item_id AS product_id
