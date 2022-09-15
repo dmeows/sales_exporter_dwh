@@ -2,7 +2,7 @@
 Bạn hãy làm theo yêu cầu bên dưới nha 😁
 Yêu cầu:
 - Xem thông tin và dữ liệu của bảng "sales__order_lines"
-- Từ bảng "sales__order_lines", viết câu query bằng SQL để lấy 3 cột và đặt lại tên:
+- Sửa câu query SQL bên dưới để lấy 3 cột và đặt lại tên:
 
 | Tên gốc       | Tên mới             |
 |---------------|---------------------|
@@ -13,3 +13,6 @@ Yêu cầu:
 #}
 
 
+SELECT 
+  *
+FROM `duckdata-320210.wide_world_importers.sales__order_lines`
