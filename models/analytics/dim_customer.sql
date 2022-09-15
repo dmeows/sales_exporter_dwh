@@ -28,3 +28,4 @@ SELECT
   customer_id
   , customer_name 
 FROM dim_customer__cast_type
+
