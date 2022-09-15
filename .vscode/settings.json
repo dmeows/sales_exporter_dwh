@@ -5,14 +5,14 @@
     // SOURCE: https://dbt-msft.github.io/dbt-msft-docs/docs/guides/vscode_setup/#vscode-dbt
     "files.associations": {
         // the pattern on the left side can be whatever you want: e.g.
-        "**/wide_world_importers_dbt/**/*.sql": "jinja-sql", 
+        "*.sql": "jinja-sql", 
     
         // optional: don't format models in `target/` dir
         "**/target/**": "",
         // I don't personally use these, but you can also have jinja work for `yaml` and `md` files
-        "**/wide_world_importers_dbt/**/*.yaml": "jinja-yaml",
-         "**/wide_world_importers_dbt/**/*.yml": "jinja-yaml",
-        "**/wide_world_importers_dbt/**/docs/**/*.md": "jinja-md",
+        "*.yaml": "jinja-yaml",
+        "*.yml": "jinja-yaml",
+        "**/docs/**/*.md": "jinja-md",
     
         // the vscode-dbt docs say you may need this
         "editor.quickSuggestions": "strings"
