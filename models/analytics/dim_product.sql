@@ -1,7 +1,7 @@
 {#
-Yêu cầu:
+Yêu cầu #0103a:
 - Xem thông tin và dữ liệu của bảng "warehouse__stock_items"
-- Từ bảng "warehouse__stock_items", viết câu query để lấy 3 cột và đặt lại tên:
+- Sửa câu query bên dưới để lấy 3 cột và đặt lại tên:
 
 | Tên gốc         | Tên mới      |
 |-----------------|--------------|
@@ -12,3 +12,6 @@ Yêu cầu:
 #}
 
 
+SELECT 
+  *
+FROM `duckdata-320210.wide_world_importers.warehouse__stock_items`
