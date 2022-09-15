@@ -11,3 +11,6 @@ Yêu cầu #0110a:
 #}
 
 
+SELECT
+  *
+FROM `duckdata-320210.wide_world_importers.application__people`
