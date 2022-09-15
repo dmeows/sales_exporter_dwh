@@ -54,3 +54,4 @@ SELECT
   , unit_price
   , gross_amount
 FROM fact_sales_order_line__calculate_fact
+
