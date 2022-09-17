@@ -14,5 +14,7 @@ Yêu cầu #0101:
 
 
 SELECT 
-  *
+  order_line_id AS sales_order_line_id,
+  quantity,
+  unit_price
 FROM `duckdata-320210.wide_world_importers.sales__order_lines`
