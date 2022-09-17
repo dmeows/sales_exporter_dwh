@@ -9,7 +9,7 @@ Yêu cầu #0104a:
 
 
 SELECT 
-    stock_item_id AS product_id
-    , stock_item_name AS product_name
-    , brand AS brand_name
+    CAST(stock_item_id AS INT64) AS product_id
+    , CAST(stock_item_name AS STRING) AS product_name
+    , CAST(brand AS STRING) AS brand_name
 FROM `duckdata-320210.wide_world_importers.warehouse__stock_items`
