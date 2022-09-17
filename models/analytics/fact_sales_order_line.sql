@@ -15,4 +15,5 @@ SELECT
   , quantity
   , unit_price
   , quantity * unit_price AS gross_amount
+  , stock_item_id AS product_id
 FROM `duckdata-320210.wide_world_importers.sales__order_lines`
