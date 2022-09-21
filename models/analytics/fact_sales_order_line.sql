@@ -58,7 +58,7 @@ SELECT
   , ol.gross_amount
   , so.customer_id
 FROM fact_sales_order_line__calculate_fact ol
-LEFT JOIN `first-dwh-prj.wide_world_importers_dwh_staging.fact_sales_order` so
+LEFT JOIN {{ ref('fact_sales_order') }} so
     ON ol.sales_order_id = so.sales_order_id
 
 
