@@ -28,12 +28,14 @@ WITH fact_sales_order_line__source AS (
     , stock_item_id AS product_id
     , quantity 
     , unit_price
+    , order_id AS sales_order_id
   FROM fact_sales_order_line__source
 )
 
 , fact_sales_order_line__cast_type AS (
   SELECT 
     CAST(sales_order_line_id AS INTEGER) AS sales_order_line_id
+    , CAST(sales_order_id AS INTEGER) AS sales_order_id
     , CAST(product_id AS INTEGER) AS product_id
     , CAST(quantity AS NUMERIC) AS quantity 
     , CAST(unit_price AS NUMERIC) AS unit_price
@@ -48,10 +50,15 @@ WITH fact_sales_order_line__source AS (
 )
 
 SELECT 
-  sales_order_line_id
-  , product_id
-  , quantity 
-  , unit_price
-  , gross_amount
-FROM fact_sales_order_line__calculate_fact
+  ol.sales_order_line_id
+  , ol.sales_order_id
+  , ol.product_id
+  , ol.quantity 
+  , ol.unit_price
+  , ol.gross_amount
+  , so.customer_id
+FROM fact_sales_order_line__calculate_fact ol
+LEFT JOIN `first-dwh-prj.wide_world_importers_dwh_staging.fact_sales_order` so
+    ON ol.sales_order_id = so.sales_order_id
+
 
