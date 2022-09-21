@@ -15,11 +15,14 @@ WITH dim_product__source AS (
     , stock_item_name AS product_name
     , brand AS brand_name
     , supplier_id
-    , case when is_chiller_stock IS TRUE then 'Chiller Stock' 
-            when is_chiller_stock IS FALSE then 'Not Chiller Stock'
-            else 'Undefined' end as is_chiller_stock
+    , is_chiller_stock AS is_chiller_stock_boolean
   FROM dim_product__source
 )
+
+    {# , case when is_chiller_stock IS TRUE then 'Chiller Stock' 
+            when is_chiller_stock IS FALSE then 'Not Chiller Stock'
+            else 'Undefined' end as is_chiller_stock #} --them conver_boolean table
+
 
 , dim_product__cast_type AS (
   SELECT 
