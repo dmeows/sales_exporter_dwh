@@ -23,21 +23,22 @@ fact_sales_order_line__rename AS(
   FROM fact_sales_order_line__source
 ),
 
+fact_sales_order_line__calculate AS(
+  SELECT *,
+    quantity*unit_price as gross_amount
+  FROM fact_sales_order_line__rename
+),
+
 fact_sales_order_line__cast AS(
   SELECT 
     CAST(sales_order_line_id AS INTEGER) AS sales_order_line_id
     , CAST(product_id AS INTEGER) AS product_id
     , CAST(quantity AS NUMERIC) AS quantity 
     , CAST(unit_price AS NUMERIC) AS unit_price
-  FROM fact_sales_order_line__rename
-)
-
-fact_sales_order_line__calculate AS(
-  SELECT *,
-    quantity*unit_price as gross_rev
-  FROM fact_sales_order_line__rename
+    , CAST(gross_amount AS NUMERIC) AS gross_amount
+  FROM fact_sales_order_line__calculate
 )
 
 SELECT *
-FROM fact_sales_order_line__calculate
+FROM fact_sales_order_line__cast
 
