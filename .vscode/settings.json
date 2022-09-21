@@ -122,4 +122,9 @@
         },
     },
     "terminal.integrated.defaultProfile.osx": "Custom MacOS",
+
+
+
+    // DBT POWER USER
+    "dbt.profilesDirOverride": ".",
 }
