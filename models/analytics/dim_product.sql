@@ -15,7 +15,7 @@ WITH dim_product__source AS (
     , stock_item_name AS product_name
     , brand AS brand_name
     , supplier_id
-    , case when is_chiller_stock IS TRUE then 'chiller_stock' else 'not_chiller_stock' end as is_chiller_stock
+    , case when is_chiller_stock IS TRUE then 'Chiller Stock' else 'Not Chiller Stock' end as is_chiller_stock
   FROM dim_product__source
 )
 
