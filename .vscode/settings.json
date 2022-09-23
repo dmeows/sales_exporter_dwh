@@ -117,7 +117,7 @@
 
     "terminal.integrated.profiles.osx": {
         "Custom MacOS": {
-            "path": "/bin/sh",
+            "path": "/bin/bash",
             "args": ["--init-file", "bin/macos/terminal_startup.sh"]
         },
     },
