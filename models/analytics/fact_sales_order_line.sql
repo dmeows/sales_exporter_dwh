@@ -10,7 +10,8 @@ Yêu cầu #0201: Sửa model thành dạng incremental bằng DBT
 
 {{
   config(
-    materialized='incremental'
+    materialized='incremental',
+    unique_key='sales_order_line_id',
   )
 }}
 
