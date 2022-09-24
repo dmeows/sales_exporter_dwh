@@ -1,4 +1,9 @@
 {#
+Kỹ thuật Incremental Load bao gồm cách xác định dữ liệu mới và cách lưu dữ liệu mới. Sau khi đã hiểu về incremental load, bạn hãy đọc tài liệu về DBT materialization và incremental nha:
+- DBT materialization: https://docs.getdbt.com/docs/building-a-dbt-project/building-models/materializations
+- DBT incremental: https://docs.getdbt.com/docs/building-a-dbt-project/building-models/configuring-incremental-models
+
+Yêu cầu #0201: Sửa model thành dạng incremental bằng DBT
 
 #}
 
