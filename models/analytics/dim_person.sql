@@ -27,3 +27,8 @@ SELECT
   person_id
   , person_full_name 
 FROM dim_person__cast_type
+
+UNION ALL
+SELECT
+  0 AS person_id
+  , 'Undefined' AS person_full_name
