@@ -19,10 +19,14 @@ WITH dim_product__source AS (
   FROM dim_product__source
 )
 
-    {# , case when is_chiller_stock IS TRUE then 'Chiller Stock' 
-            when is_chiller_stock IS FALSE then 'Not Chiller Stock'
-            else 'Undefined' end as is_chiller_stock #} --them conver_boolean table
-
+, dim_product__conver_boolean AS (
+  SELECT 
+    *,
+    case when is_chiller_stock_boolean IS TRUE then 'Chiller Stock' 
+            when is_chiller_stock_boolean IS FALSE then 'Not Chiller Stock'
+            else 'Undefined' end as is_chiller_stock
+  FROM dim_product__rename_column
+)
 
 , dim_product__cast_type AS (
   SELECT 
@@ -31,7 +35,7 @@ WITH dim_product__source AS (
     , CAST(brand_name AS STRING) AS brand_name
     , CAST(supplier_id AS INTEGER) AS supplier_id
     , CAST(is_chiller_stock AS STRING) AS is_chiller_stock
-  FROM dim_product__rename_column
+  FROM dim_product__conver_boolean
 )
 
 SELECT 
