@@ -18,10 +18,16 @@ WITH dim_product__source AS (
   SELECT 
     stock_item_id AS product_id
     , stock_item_name AS product_name
-    , brand AS brand_name
+    , brand AS brand_name_null
     , is_chiller_stock AS is_chiller_stock_boolean
     , supplier_id
   FROM dim_product__source
+)
+
+, dim_product__null_handle AS (
+  SELECT *,
+      COALESCE(brand_name_null, 'Undefined') AS brand_name
+  FROM dim_product__rename_column
 )
 
 , dim_product__cast_type AS (
@@ -31,7 +37,7 @@ WITH dim_product__source AS (
     , CAST(brand_name AS STRING) AS brand_name
     , CAST(is_chiller_stock_boolean AS BOOLEAN) AS is_chiller_stock_boolean
     , CAST(supplier_id AS INTEGER) AS supplier_id
-  FROM dim_product__rename_column
+  FROM dim_product__null_handle
 )
 
 , dim_product__convert_boolean AS (
@@ -51,7 +57,7 @@ SELECT
   , dim_product.brand_name
   , dim_product.is_chiller_stock
   , dim_product.supplier_id
-  , dim_supplier.supplier_name
+  , COALESCE(dim_supplier.supplier_name, 'Undefined') AS supplier_name
 FROM dim_product__convert_boolean AS dim_product
 LEFT JOIN {{ ref('dim_supplier') }}
   ON dim_product.supplier_id = dim_supplier.supplier_id
