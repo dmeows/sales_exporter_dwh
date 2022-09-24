@@ -8,6 +8,13 @@ Yêu cầu #0201: Sửa model thành dạng incremental bằng DBT
 #}
 
 
+{{
+  config(
+    materialized='incremental'
+  )
+}}
+
+
 WITH fact_sales_order_line__source AS (
   SELECT *
   FROM `duckdata-320210.wide_world_importers.sales__order_lines`
