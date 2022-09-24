@@ -51,6 +51,7 @@ SELECT
   , fact_line.quantity 
   , fact_line.unit_price
   , fact_line.gross_amount
+  , fact_header.picked_by_person_id
 FROM fact_sales_order_line__calculate_fact AS fact_line
 LEFT JOIN {{ ref('stg_fact_sales_order') }} AS fact_header
   ON fact_line.sales_order_id = fact_header.sales_order_id

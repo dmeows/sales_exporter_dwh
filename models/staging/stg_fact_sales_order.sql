@@ -7,6 +7,7 @@ WITH fact_sales_order__source AS (
   SELECT 
     order_id AS sales_order_id
     , customer_id
+    , picked_by_person_id
   FROM fact_sales_order__source
 )
 
@@ -14,6 +15,7 @@ WITH fact_sales_order__source AS (
   SELECT 
     CAST(sales_order_id AS INTEGER) AS sales_order_id
     , CAST(customer_id AS INTEGER) AS customer_id
+    , CAST(picked_by_person_id AS INTEGER) AS picked_by_person_id
   FROM fact_sales_order__rename_column
 )
 
@@ -21,4 +23,5 @@ WITH fact_sales_order__source AS (
 SELECT 
   sales_order_id
   , customer_id
+  , picked_by_person_id
 FROM fact_sales_order__cast_type
