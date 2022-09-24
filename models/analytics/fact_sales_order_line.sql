@@ -1,5 +1,9 @@
 {#
+Ở bài trước, bạn đã setup incremental cho bảng này. Tuy nhiên, "fact_sales_order_line" được tổng hợp từ hai bảng: "sales__order_lines" và "sales__orders". Dữ liệu mới từ "sales__order_lines" sẽ được cập nhật vô bảng này. Tuy nhiên còn bảng "sales__orders" nếu được thêm mới hoặc sửa sẽ không được cập nhật (ví dụ thông tin customer_id được sửa). 
 
+Làm sao để sự thay đổi ở cả hai bảng "sales__order_lines" và "sales__orders" đều được cập nhật ở bảng này?
+
+Yêu cầu #0202: Tùy chỉnh để bảng này có thể load incrementally từ cả "sales__order_lines" và "sales__orders".
 #}
 
 
