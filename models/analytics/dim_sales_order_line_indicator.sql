@@ -23,13 +23,13 @@ WITH dim_package_type AS (
 
 SELECT 
   FARM_FINGERPRINT(CONCAT(
-    dim_package_type.package_type_id
-    , dim_is_undersupply_backordered.is_undersupply_backordered_boolean
+    dim_is_undersupply_backordered.is_undersupply_backordered_boolean
+    , dim_package_type.package_type_id
   )) AS sales_order_line_indicator_key
   
-  , dim_package_type.package_type_id
-  , dim_package_type.package_type_name
   , dim_is_undersupply_backordered.is_undersupply_backordered_boolean
   , dim_is_undersupply_backordered.is_undersupply_backordered
-FROM dim_package_type
-CROSS JOIN dim_is_undersupply_backordered
+  , dim_package_type.package_type_id
+  , dim_package_type.package_type_name
+FROM dim_is_undersupply_backordered
+CROSS JOIN dim_package_type
