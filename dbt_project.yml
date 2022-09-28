@@ -32,6 +32,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   wide_world_importers_dbt:
     +materialized: table
+    analytics:
+      role_playing_dimensions:
+        +materialized: view
 
     staging: 
       +materialized: view
