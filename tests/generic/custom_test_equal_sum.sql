@@ -1,41 +1,41 @@
 {% test custom_test_equal_sum(
   model, 
   column_name, 
-  target_model, 
-  target_column,
+  compare_model, 
+  compare_column,
 
-  source_condition = 'TRUE',
-  target_condition = 'TRUE'
+  where = 'TRUE',
+  compare_where = 'TRUE'
 ) %}
 
 
 /*
-source_condition: filter data on the source table. Default to TRUE.
-target_condition: filter data on the target table. Default to TRUE.
+where: filter data on the source table. Default to TRUE.
+compare_where: filter data on the compare table. Default to TRUE.
 */
 
 
 WITH source AS (
-  SELECT SUM( ({{ column_name }}) ::NUMERIC ) AS source_total
+  SELECT SUM( CAST(({{ column_name }}) AS NUMERIC) ) AS source_total
   FROM {{ model }}
   WHERE 
-    {{ source_condition }}
+    {{ where }}
 )
 
-, target AS (
-  SELECT SUM( ({{ target_column }}) ::NUMERIC ) AS target_total
-  FROM {{ target_model }}
+, compare AS (
+  SELECT SUM( CAST(({{ compare_column }}) AS NUMERIC) ) AS compare_total
+  FROM {{ compare_model }}
   WHERE 
-    {{ target_condition }}
+    {{ compare_where }}
 )
 
 SELECT 
   source.source_total
-  , target.target_total
+  , compare.compare_total
 FROM source
-CROSS JOIN target
+CROSS JOIN compare
 WHERE 
-  source.source_total <> target.target_total
+  source.source_total <> compare.compare_total
 
 
 {% endtest %}
