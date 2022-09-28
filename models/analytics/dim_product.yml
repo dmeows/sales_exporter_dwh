@@ -5,6 +5,7 @@ models:
     columns:
       - name: product_id
         tests:
+          - unique
           - not_null
 
       - name: product_name

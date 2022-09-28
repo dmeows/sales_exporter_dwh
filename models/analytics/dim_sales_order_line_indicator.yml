@@ -5,6 +5,7 @@ models:
     columns:
       - name: sales_order_line_indicator_key
         tests:
+          - unique
           - not_null
 
       - name: is_undersupply_backordered_boolean

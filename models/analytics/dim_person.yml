@@ -5,6 +5,7 @@ models:
     columns:
       - name: person_id
         tests:
+          - unique
           - not_null
 
       - name: person_full_name

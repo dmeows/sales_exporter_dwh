@@ -5,6 +5,7 @@ models:
     columns:
       - name: sales_order_line_id
         tests:
+          - unique
           - not_null
 
       - name: sales_order_id
