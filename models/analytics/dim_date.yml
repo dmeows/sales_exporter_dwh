@@ -11,14 +11,20 @@ models:
       - name: day_of_week
         tests:
           - not_null
+          - accepted_values:
+              values: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
       - name: day_of_week_short
         tests:
           - not_null
+          - accepted_values:
+              values: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
       - name: is_weekday_or_weekend
         tests:
           - not_null
+          - accepted_values:
+              values: ['Weekday', 'Weekend']
           
       - name: year_month
         tests:
@@ -27,6 +33,8 @@ models:
       - name: month
         tests:
           - not_null
+          - accepted_values:
+              values: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
           
       - name: year
         tests:

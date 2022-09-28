@@ -19,6 +19,8 @@ models:
       - name: is_chiller_stock
         tests:
           - not_null
+          - accepted_values:
+              values: ['Chiller Stock', 'Not Chiller Stock', 'Undefined']
               
       - name: supplier_id
         tests:

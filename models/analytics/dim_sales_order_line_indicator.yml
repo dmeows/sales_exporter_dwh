@@ -15,6 +15,8 @@ models:
       - name: is_undersupply_backordered
         tests:
           - not_null
+          - accepted_values:
+              values: ['Undersupply Backordered', 'Not Undersupply Backordered']
 
       - name: package_type_id
         tests:
