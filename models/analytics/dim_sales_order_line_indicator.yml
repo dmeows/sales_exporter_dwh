@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: dim_sales_order_line_indicator
+    columns:
+      - name: sales_order_line_indicator_key
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+          - not_null
+
+      - name: is_undersupply_backordered_boolean
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: BOOLEAN
+          - not_null
+
+      - name: is_undersupply_backordered
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: STRING
+          - not_null
+
+      - name: package_type_id
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+          - not_null
+
+      - name: package_type_name
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: STRING
+          - not_null
