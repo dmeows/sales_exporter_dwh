@@ -54,8 +54,10 @@ SELECT
   , COALESCE(fact_header.picked_by_person_id, 0) AS picked_by_person_id
   , COALESCE(fact_header.salesperson_person_id, 0) AS salesperson_person_id
   , fact_line.product_id
-  , fact_header.is_undersupply_backordered_boolean
-  , fact_line.package_type_id
+  , FARM_FINGERPRINT(CONCAT(
+    fact_header.is_undersupply_backordered_boolean
+    , fact_line.package_type_id
+  )) AS sales_order_line_indicator_key
   , fact_header.order_date
   , fact_line.quantity 
   , fact_line.unit_price
