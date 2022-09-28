@@ -50,6 +50,9 @@ models:
       - name: order_date
         tests:
           - not_null
+          - dbt_utils.accepted_range:
+              min_value: "'2010-01-01'"
+              max_value: "'2030-12-31'"
 
       - name: quantity
 

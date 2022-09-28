@@ -7,6 +7,9 @@ models:
         tests:
           - unique
           - not_null
+          - dbt_utils.accepted_range:
+              min_value: "'2010-01-01'"
+              max_value: "'2030-12-31'"
 
       - name: day_of_week
         tests:
@@ -29,6 +32,9 @@ models:
       - name: year_month
         tests:
           - not_null
+          - dbt_utils.accepted_range:
+              min_value: "'2010-01-01'"
+              max_value: "'2030-12-31'"
 
       - name: month
         tests:
@@ -39,7 +45,13 @@ models:
       - name: year
         tests:
           - not_null
+          - dbt_utils.accepted_range:
+              min_value: "'2010-01-01'"
+              max_value: "'2030-12-31'"
               
       - name: year_number
         tests:
           - not_null
+          - dbt_utils.accepted_range:
+              min_value: 2010
+              max_value: 2030
