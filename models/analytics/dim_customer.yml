@@ -5,63 +5,36 @@ models:
     columns:
       - name: customer_id
         tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: INT64
           - not_null
 
       - name: customer_name
         tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: STRING
           - not_null
 
       - name: is_on_credit_hold
         tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: STRING
           - not_null
               
       - name: customer_category_id
         tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: INT64
           - not_null
 
       - name: customer_category_name
         tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: STRING
           - not_null
               
       - name: buying_group_id
         tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: INT64
           - not_null
 
       - name: buying_group_name
         tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: STRING
           - not_null
               
       - name: delivery_method_id
         tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: INT64
           - not_null
 
       - name: delivery_method_name
         tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: STRING
           - not_null

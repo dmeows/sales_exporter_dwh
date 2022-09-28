@@ -5,14 +5,8 @@ models:
     columns:
       - name: person_id
         tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: INT64
           - not_null
 
       - name: person_full_name
         tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: STRING
           - not_null
