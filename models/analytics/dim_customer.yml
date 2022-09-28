@@ -2,6 +2,13 @@ version: 2
 
 models:
   - name: dim_customer
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: "`duckdata-320210.wide_world_importers.sales__customers`"
+          config: 
+            warn_if: "!= 1" # add_undefined_record
+            error_if: "!= 1"
+
     columns:
       - name: customer_id
         tests:

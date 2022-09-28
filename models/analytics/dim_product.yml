@@ -2,6 +2,13 @@ version: 2
 
 models:
   - name: dim_product
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: "`duckdata-320210.wide_world_importers.warehouse__stock_items`"
+          config: 
+            warn_if: "!= 1" # add_undefined_record
+            error_if: "!= 1"
+
     columns:
       - name: product_id
         tests:
