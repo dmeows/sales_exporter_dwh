@@ -1,9 +1,4 @@
 {#
-Yêu cầu #0203a: Lấy thêm dữ liệu cho bảng này:
-
-| Tên gốc                             | Tên mới               |
-|-------------------------------------|-----------------------|
-| sales__orders.salesperson_person_id | salesperson_person_id |
 
 #}
 
