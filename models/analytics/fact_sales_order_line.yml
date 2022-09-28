@@ -15,22 +15,37 @@ models:
       - name: customer_id
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_customer')
+              field: customer_id
 
       - name: picked_by_person_id
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_picked_by_person')
+              field: picked_by_person_id
 
       - name: salesperson_person_id
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_salesperson_person')
+              field: salesperson_person_id
 
       - name: product_id
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_product')
+              field: product_id
 
       - name: sales_order_line_indicator_key
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_sales_order_line_indicator')
+              field: sales_order_line_indicator_key
 
       - name: order_date
         tests:
