@@ -21,6 +21,11 @@ models:
       - name: customer_category_id
         tests:
           - not_null
+          - relationships:
+              to: ref('stg_dim_customer_category')
+              field: customer_category_id
+              config:
+                where: customer_category_id <> 0
 
       - name: customer_category_name
         tests:
@@ -29,6 +34,11 @@ models:
       - name: buying_group_id
         tests:
           - not_null
+          - relationships:
+              to: ref('stg_dim_buying_group')
+              field: buying_group_id
+              config:
+                where: buying_group_id <> 0
 
       - name: buying_group_name
         tests:
@@ -37,6 +47,11 @@ models:
       - name: delivery_method_id
         tests:
           - not_null
+          - relationships:
+              to: ref('stg_dim_delivery_method')
+              field: delivery_method_id
+              config:
+                where: delivery_method_id <> 0
 
       - name: delivery_method_name
         tests:
