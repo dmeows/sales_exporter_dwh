@@ -44,7 +44,7 @@ WITH fact_sales_order_line__source AS (
   {{
     config(
         materialized='incremental',
-        unique_key='order_line_id'
+        unique_key='sales_order_line_id'
     )
   }}
 
