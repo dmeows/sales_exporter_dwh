@@ -27,7 +27,7 @@ WITH fact_sales_order_line__source AS (
     , stock_item_id AS product_id
     , quantity 
     , unit_price
-    , last_edited_when
+    , last_edited_when AS order_line_last_edited_when
   FROM fact_sales_order_line__source
 )
 
@@ -38,7 +38,7 @@ WITH fact_sales_order_line__source AS (
     , CAST(product_id AS INTEGER) AS product_id
     , CAST(quantity AS NUMERIC) AS quantity 
     , CAST(unit_price AS NUMERIC) AS unit_price
-    , CAST(last_edited_when AS TIMESTAMP) AS last_edited_when
+    , CAST(order_line_last_edited_when AS TIMESTAMP) AS order_line_last_edited_when
   FROM fact_sales_order_line__rename_column
 )
 
@@ -59,11 +59,15 @@ SELECT
   , fact_line.quantity 
   , fact_line.unit_price
   , fact_line.gross_amount
-  , fact_line.last_edited_when
+  , fact_line.order_line_last_edited_when
+  , fact_header.sales_order_last_edited_when
+  {# , GREATEST(fact_line.order_line_last_edited_when, fact_header.sales_order_last_edited_when) AS last_edited_when #}
 FROM fact_sales_order_line__calculate_fact AS fact_line
 LEFT JOIN {{ ref('stg_fact_sales_order') }} AS fact_header
   ON fact_line.sales_order_id = fact_header.sales_order_id
 
 {% if is_incremental() %}
-  WHERE fact_line.last_edited_when >= (SELECT MAX(last_edited_when) FROM {{ this }})
+  WHERE 
+      fact_line.order_line_last_edited_when >= (SELECT MAX(order_line_last_edited_when) FROM {{ this }})
+      OR fact_header.sales_order_last_edited_when  >= (SELECT MAX(sales_order_last_edited_when) FROM {{ this }})
 {% endif %}
