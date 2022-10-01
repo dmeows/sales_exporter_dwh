@@ -44,7 +44,8 @@ WITH fact_sales_order_line__source AS (
   {{
     config(
         materialized='incremental',
-        unique_key='sales_order_line_id'
+        unique_key='sales_order_line_id',
+        incremental_strategy = 'insert_overwrite'
     )
   }}
 
@@ -62,14 +63,8 @@ SELECT
 FROM fact_sales_order_line__calculate_fact AS fact_line
 LEFT JOIN {{ ref('stg_fact_sales_order') }} AS fact_header
   ON fact_line.sales_order_id = fact_header.sales_order_id
+  
   {% if is_incremental() %}
-WHERE 
+  WHERE 
   last_edited_when >= (select max(last_edited_when) from {{ this }})
   {% endif %}
-
-  {# {{
-    config(
-      materialized = 'incremental',
-      incremental_strategy = 'insert_overwrite'
-      )
-  }} #}
