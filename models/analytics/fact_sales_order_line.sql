@@ -1,7 +1,11 @@
 {#
+Kỹ thuật Incremental Load bao gồm cách xác định dữ liệu mới và cách lưu dữ liệu mới. Sau khi đã hiểu về incremental load, bạn hãy đọc tài liệu về DBT materialization và incremental nha:
+- DBT materialization: https://docs.getdbt.com/docs/building-a-dbt-project/building-models/materializations
+- DBT incremental: https://docs.getdbt.com/docs/building-a-dbt-project/building-models/configuring-incremental-models
+
+Yêu cầu #0201: Sửa model thành dạng incremental bằng DBT
 
 #}
-
 
 WITH fact_sales_order_line__source AS (
   SELECT *
@@ -15,6 +19,7 @@ WITH fact_sales_order_line__source AS (
     , stock_item_id AS product_id
     , quantity 
     , unit_price
+    , last_edited_when
   FROM fact_sales_order_line__source
 )
 
@@ -25,6 +30,7 @@ WITH fact_sales_order_line__source AS (
     , CAST(product_id AS INTEGER) AS product_id
     , CAST(quantity AS NUMERIC) AS quantity 
     , CAST(unit_price AS NUMERIC) AS unit_price
+    , CAST(last_edited_when AS TIMESTAMP) AS last_edited_when
   FROM fact_sales_order_line__rename_column
 )
 
@@ -34,6 +40,13 @@ WITH fact_sales_order_line__source AS (
     , quantity * unit_price AS gross_amount
   FROM fact_sales_order_line__cast_type
 )
+
+  {{
+    config(
+        materialized='incremental',
+        unique_key='order_line_id'
+    )
+  }}
 
 SELECT 
   fact_line.sales_order_line_id
@@ -45,6 +58,18 @@ SELECT
   , fact_line.quantity 
   , fact_line.unit_price
   , fact_line.gross_amount
+  , fact_line.last_edited_when
 FROM fact_sales_order_line__calculate_fact AS fact_line
 LEFT JOIN {{ ref('stg_fact_sales_order') }} AS fact_header
   ON fact_line.sales_order_id = fact_header.sales_order_id
+  {% if is_incremental() %}
+WHERE 
+  last_edited_when >= (select max(last_edited_when) from {{ this }})
+  {% endif %}
+
+  {# {{
+    config(
+      materialized = 'incremental',
+      incremental_strategy = 'insert_overwrite'
+      )
+  }} #}
