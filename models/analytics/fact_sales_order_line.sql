@@ -55,6 +55,7 @@ SELECT
   , fact_line.sales_order_id
   , COALESCE(fact_header.customer_id, 0) AS customer_id
   , COALESCE(fact_header.picked_by_person_id, 0) AS picked_by_person_id
+  , COALESCE(fact_header.salesperson_person_id, 0) AS salesperson_person_id
   , fact_line.product_id
   , fact_header.order_date
   , fact_line.quantity 

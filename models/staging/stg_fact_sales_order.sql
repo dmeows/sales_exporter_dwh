@@ -8,8 +8,8 @@ WITH fact_sales_order__source AS (
     order_id AS sales_order_id
     , customer_id
     , picked_by_person_id
-    , order_date
-    , last_edited_when AS sales__orders__last_edited_when
+    , salesperson_person_id
+
   FROM fact_sales_order__source
 )
 
@@ -17,6 +17,7 @@ WITH fact_sales_order__source AS (
   SELECT 
     CAST(sales_order_id AS INTEGER) AS sales_order_id
     , CAST(customer_id AS INTEGER) AS customer_id
+    , CAST(salesperson_person_id AS INTEGER) AS salesperson_person_id
     , CAST(picked_by_person_id AS INTEGER) AS picked_by_person_id
     , CAST(order_date AS DATE) AS order_date
     , CAST(sales__orders__last_edited_when AS TIMESTAMP) AS sales__orders__last_edited_when
@@ -28,6 +29,7 @@ SELECT
   sales_order_id
   , customer_id
   , picked_by_person_id
+  , salesperson_person_id
   , order_date
   , sales__orders__last_edited_when
 FROM fact_sales_order__cast_type
