@@ -19,6 +19,7 @@ WITH fact_sales_order_line__source AS (
 , fact_sales_order_line__rename_column AS (
   SELECT 
     order_line_id AS sales_order_line_id
+    , package_type_id
     , order_id AS sales_order_id
     , stock_item_id AS product_id
     , quantity 
@@ -32,6 +33,7 @@ WITH fact_sales_order_line__source AS (
     CAST(sales_order_line_id AS INTEGER) AS sales_order_line_id
     , CAST(sales_order_id AS INTEGER) AS sales_order_id
     , CAST(product_id AS INTEGER) AS product_id
+    , CAST(package_type_id AS INTEGER) AS package_type_id
     , CAST(quantity AS NUMERIC) AS quantity 
     , CAST(unit_price AS NUMERIC) AS unit_price
     , CAST(last_edited_when AS TIMESTAMP) AS last_edited_when
@@ -52,6 +54,9 @@ SELECT
   , COALESCE(fact_header.picked_by_person_id, 0) AS picked_by_person_id
   , COALESCE(fact_header.salesperson_person_id, 0) AS salesperson_person_id
   , fact_line.product_id
+  , fact_line.package_type_id
+  , fact_header.is_undersupply_backordered_boolean
+  , FARM_FINGERPRINT(CONCAT(CAST(fact_line.package_type_id AS STRING), CAST(fact_header.is_undersupply_backordered_boolean AS STRING))) AS sales_order_line_indicator_key
   , fact_header.order_date
   , fact_line.quantity 
   , fact_line.unit_price
