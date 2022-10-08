@@ -23,6 +23,9 @@ models:
       - name: supplier_id
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_supplier')
+              field: supplier_id
 
       - name: supplier_name
         tests:
