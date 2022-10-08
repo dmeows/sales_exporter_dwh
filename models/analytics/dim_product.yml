@@ -6,6 +6,7 @@ models:
       - name: product_id
         tests:
           - not_null
+          - unique
 
       - name: product_name
         tests:
@@ -21,7 +22,7 @@ models:
               
       - name: supplier_id
         tests:
-          - not_null
+        
 
       - name: supplier_name
         tests:
