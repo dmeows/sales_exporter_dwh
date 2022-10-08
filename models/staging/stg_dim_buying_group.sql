@@ -14,4 +14,4 @@ WITH dim_buying_group__source AS (
 SELECT 
   buying_group_id
   , buying_group_name 
-FROM dim_buying_group__cast_type
+FROM dim_buying_group__cast_type 
