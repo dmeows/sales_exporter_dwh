@@ -1,7 +1,11 @@
 version: 2
 
-models:
+models:          
   - name: dim_customer
+    tests: 
+      - dbt_utils.equal_rowcount:
+          compare_model: "`duckdata-320210.wide_world_importers.sales__customers`"
+
     columns:
       - name: customer_id
         tests:
