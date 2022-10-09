@@ -59,8 +59,16 @@ models:
               max_value: "'2030-12-31'"
 
       - name: quantity
+        tests:
+          - custom_test_equal_sum:
+              compare_model: "`duckdata-320210.wide_world_importers.sales__order_lines`"
+              compare_column: quantity
 
       - name: unit_price
+        tests:
+          - custom_test_equal_sum:
+              compare_model: "`duckdata-320210.wide_world_importers.sales__order_lines`"
+              compare_column: unit_price
 
       - name: gross_amount
 
