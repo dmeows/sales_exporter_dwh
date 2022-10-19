@@ -29,14 +29,14 @@ clean-targets:         # directories to be removed by `dbt clean`
 # In this example config, we tell dbt to build all models in the example/ directory
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
+
 models:
   wide_world_importers_dbt:
-    +materialized: table
+    +materialized: table  
+    analytics:
+      role_playing_dimensions:
+        +materialized: view
 
     staging: 
       +materialized: view
       +schema: staging
-    
-    analytics:
-      role_playing_dimensions:
-        +materialized: view
