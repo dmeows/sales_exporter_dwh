@@ -39,7 +39,6 @@ WITH CTE1 AS (
   ON CTE3.inventory_transaction_summary_key = CTE1.inventory_transaction_summary_key
   LEFT JOIN CTE2
   ON CTE3.inventory_transaction_summary_key = CTE2.inventory_transaction_summary_key
-  where CTE1.net_change_quantity is not null
 )
 
 SELECT
