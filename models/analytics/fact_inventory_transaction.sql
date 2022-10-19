@@ -47,4 +47,4 @@ SELECT
       , quantity
       , inventory_transaction__last_edited_by
       , inventory_transaction__last_edited_when
-FROM fact_inventory_transaction__cast_type 
+FROM fact_inventory_transaction__cast_type  
