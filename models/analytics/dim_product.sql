@@ -62,13 +62,18 @@ WITH dim_product__source AS (
     , 0 AS supplier_id
 )
 
+
 SELECT 
     dim_product.product_id
   , dim_product.product_name
   , dim_product.brand_name
   , dim_product.is_chiller_stock
   , dim_product.supplier_id
+  , stg_dim_category.category_id
+  , stg_dim_category.category_name
   , COALESCE(dim_supplier.supplier_name, 'Undefined') AS supplier_name
 FROM dim_product__add_undefined_record AS dim_product
 LEFT JOIN {{ ref('dim_supplier') }}
   ON dim_product.supplier_id = dim_supplier.supplier_id
+LEFT JOIN {{ ref('stg_dim_category') }}
+  ON dim_product.product_id = stg_dim_category.product_id
