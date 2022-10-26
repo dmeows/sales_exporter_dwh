@@ -1,7 +1,7 @@
 
 SELECT 
   FORMAT_DATE('%Y', date(fact_sales_order_line.order_date)) as year
-  , dim_product.category_name
+  , dim_product.product_name
   , SUM(fact_sales_order_line.gross_amount) as gross_amount
   , SUM(target_revenue.target_revenue) as target_revenue
 
