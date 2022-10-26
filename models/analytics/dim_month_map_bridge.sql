@@ -1,5 +1,6 @@
 
   SELECT
+    DISTINCT
     FORMAT_DATE('%Y-%m', year_month) AS month_original
     , FORMAT_DATE('%Y-%m', year_month) AS current_month
     , 'CY' AS type
@@ -8,6 +9,7 @@
 
 UNION DISTINCT 
 SELECT
+    DISTINCT
     FORMAT_DATE('%Y-%m', DATE_SUB(DATE(year_month), INTERVAL 1 YEAR))  AS month_original
     , FORMAT_DATE('%Y-%m', year_month) AS current_month
     , 'LY' AS type
